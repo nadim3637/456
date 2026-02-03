@@ -416,7 +416,7 @@ export const fetchChapters = async (
       return chapters;
   }
 
-  let modelName = "llama3-8b-8192";
+  let modelName = "llama-3.1-8b-instant";
   try {
       const s = localStorage.getItem('nst_system_settings');
       if (s) { const p = JSON.parse(s); if(p.aiModel) modelName = p.aiModel; }
@@ -476,7 +476,7 @@ export const fetchLessonContent = async (
 ): Promise<LessonContent> => {
   
   let customInstruction = "";
-  let modelName = "llama3-8b-8192";
+  let modelName = "llama-3.1-8b-instant";
   let promptNotes = "";
   let promptNotesPremium = "";
   let promptMCQ = "";
@@ -851,7 +851,7 @@ export const generateTestPaper = async (topics: any, count: number, language: La
 };
 export const generateDevCode = async (userPrompt: string): Promise<string> => { return "// Dev Console Disabled"; };
 
-export const generateCustomNotes = async (userTopic: string, adminPrompt: string, modelName: string = "llama3-8b-8192"): Promise<string> => {
+export const generateCustomNotes = async (userTopic: string, adminPrompt: string, modelName: string = "llama-3.1-8b-instant"): Promise<string> => {
     const prompt = `${adminPrompt || 'Generate detailed notes for the following topic:'}
     
     TOPIC: ${userTopic}
@@ -875,7 +875,7 @@ export const generateUltraAnalysis = async (
     },
     settings?: SystemSettings
 ): Promise<string> => {
-    let modelName = "llama3-8b-8192";
+    let modelName = "llama-3.1-8b-instant";
     let customInstruction = "";
     
     if (settings) {
